@@ -465,6 +465,19 @@ header h1 {
   }
 }
 
+@media (max-width: 750px) {
+  header nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  header nav button {
+    padding: 0.55rem 1.4rem;
+  }
+}
+
 /* ==== SEARCH BAR muito larga no mobile ==== */
 @media (max-width: 600px) {
   .nav-search input {
