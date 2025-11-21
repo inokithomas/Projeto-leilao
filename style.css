@@ -1,0 +1,542 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(180deg, #0f0f0f, #262626); 
+    color: #ffffff;      
+    overflow-x: hidden;
+  }
+
+
+  /*   HEADER   */
+  header {
+    width: 100%;
+    background: #0b0b0b;
+    color: #ffffff;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid #1e1e1e;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+    gap: 1rem;
+    min-height: 90px;
+  }
+
+  .logo-conteiner img {
+    max-width: 145px;
+    height: auto;
+    margin-top: 20px
+  }
+
+  .logo-conteiner {
+    margin-top: 10px;
+  }
+  
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-left: -85px;   
+  flex: 0;             
+  white-space: nowrap; 
+}
+
+  header nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Botões roxos */
+  header nav button {
+    padding: 0.5rem 1.7rem;
+    border: none;
+    background:  #1b004b;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  header nav button:hover {
+    background: #4c007d;
+  }
+
+
+  /* SEARCH */
+.nav-search {
+  display: flex;
+  align-items: center;
+  background: #1b1b1b;    
+  padding: 6px 12px;
+  border-radius: 50px;
+  gap: 10px;
+}
+
+.nav-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 345px;          
+  font-size: 1.1rem;
+}
+
+.nav-search button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #a7a7a7;       
+}
+
+.nav-search button:hover {
+  color: white;
+}
+
+
+  /*   PÁGINAS                 */
+  .pagina {
+    display: none;
+    padding: 2rem;
+  }
+
+  .pagina.ativa {
+    display: block;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+
+  /*   GRID                    */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.3rem;
+    margin-top: 1.5rem;
+  }
+
+
+  /*   CARDS                   */
+  .card {
+    background: #000000;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+    border: 1px solid #ddd;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.5);
+  }
+
+  .carro-imagem {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #111;
+  }
+
+  .card h3 {
+    color:  #eaeaea;
+    margin-top: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    
+  }
+
+  .carro-info {
+    color: #ddd;
+    margin: 0.3rem 0;
+  }
+
+  .lance-valor {
+    color: #b88cff; 
+    font-weight: bold;
+    font-size: 1.1rem;
+    
+  }
+
+  /* Botões dos cards */
+  .card button,
+  .btn-lance {
+    background: #1b004b;
+    color: white;
+    border: none;
+    padding: 0.55rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: 0.3s;
+    font-weight: 600;
+  }
+
+  #btn-admin {
+  display: none;
+}
+
+
+  .card button:hover,
+  .btn-lance:hover {
+    background: #4c007d;
+  }
+
+  .admin-actions {
+  width: 100%;
+  margin-top: 1rem;
+  grid-column: span 3; 
+}
+
+#btn-logout {
+  width: 100%;
+  justify-self: start;
+}
+
+
+  /*   FORMULÁRIOS             */
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* FORM DOS CARROS */
+#form-carro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1rem;
+}
+
+#form-carro .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-carro .form-group:nth-child(7) {
+  grid-column: span 3;
+}
+
+#form-carro .btn-adicionar {
+  grid-column: span 3;
+  width: 100%;
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+
+/* FORM DO CADASTRO  */
+#form-cadastro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1rem;
+}
+
+#form-cadastro .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+#form-cadastro button {
+  grid-column: span 3;
+  width: 100%;
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+/* FORM DO LOGIN  */
+#form-login-usuario {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1rem;
+}
+
+#form-login-usuario .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  
+}
+
+#form-login-usuario button {
+  grid-column: span 2; 
+  width: 100%;
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+
+  form input,
+  form button {
+    padding: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid #555;
+    font-size: 1rem;
+    background: #1b1b1b;
+    color: white;
+  }
+
+  .login-container,
+  .admin-container,
+  .user-container {
+    background: #2a2a2a;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    color: white;
+  }
+
+  /* Preview */
+  .preview-imagem {
+    width: 100%;
+    height: 150px;
+    border: 2px dashed #888;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+  }
+
+  .preview-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+  /*   BOTÕES GERAIS           */
+  .btn-login,
+  .btn-adicionar {
+    background: #1b004b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    border-radius: 50px;
+  }
+
+  .btn-login:hover,
+  .btn-adicionar:hover {
+    background: #4c007d;
+  }
+
+  .btn-logout {
+    background: #b12c2c;
+    color: white;
+    margin-top: 1rem;
+    border-radius: 50px;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .btn-logout:hover {
+    background: #922626;
+  }
+
+
+/*   MODAL DETALHES DO CARRO     */
+.modal-content {
+  max-height: 80vh;      
+  overflow-y: auto;    
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1e1e1e;
+  padding: 2rem;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  animation: modalShow .3s ease;
+  color: #fff;
+}
+
+@keyframes modalShow {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.modal-close {
+  float: right;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #bbb;
+}
+
+.modal-close:hover {
+  color: #fff;
+}
+
+.modal-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+#modal-nome {
+  text-align: left;     
+  font-size: 28px;    
+  font-weight: 700;  
+  margin-bottom: 10px;    
+  color: #ffffff;
+}
+
+
+/* SIDEBAR DE INFORMAÇÕES */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -450px;
+  width: 450px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  transition: right 0.3s ease-in-out;
+  z-index: 5000;
+  padding: 20px;
+  
+  
+}
+
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.close-sidebar {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+  /*   RESPONSIVIDADE          */
+ 
+  /* ==== AJUSTE DO TÍTULO NO MOBILE (remover margem negativa) ==== */
+@media (max-width: 750px) {
+  header h1 {
+    margin-left: 0; 
+  }
+}
+
+/* ==== SEARCH BAR muito larga no mobile ==== */
+@media (max-width: 600px) {
+  .nav-search input {
+    width: 180px;   /* reduz sem quebrar */
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-search {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-search input {
+    width: 100%;
+  }
+}
+
+/* ==== FORMULÁRIOS quebrando colunas no mobile ==== */
+@media (max-width: 700px) {
+  #form-carro,
+  #form-cadastro,
+  #form-login-usuario {
+    grid-template-columns: 1fr;   /* vira 1 coluna */
+  }
+
+  #form-carro .form-group:nth-child(7),
+  #form-carro .btn-adicionar,
+  #form-cadastro button,
+  #form-login-usuario button {
+    grid-column: span 1;
+  }
+}
+
+/* ==== SIDEBAR grande demais para telas pequenas ==== */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    right: -100%; 
+  }
+}
+
+/* ==== MODAL imagem muito grande ==== */
+@media (max-width: 500px) {
+  .modal-img {
+    height: 220px;
+  }
+
+  #modal-nome {
+    font-size: 22px;
+  }
+}
+/* Impede que os formulários estourem a largura no mobile */
+@media (max-width: 700px) {
+  #form-carro,
+  #form-cadastro,
+  #form-login-usuario {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  form input,
+  form button {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+

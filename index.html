@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoLeilão</title>
+  <link rel="shortcut icon" href="img/LogoPretoCentro.ico">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <body>
+
+   <!-- MODAL DE DETALHES DO CARRO -->
+<div id="modal-detalhes" class="modal">
+  <div class="modal-content">
+    <span id="modal-close" class="modal-close">&times;</span>
+
+    <h2 id="modal-nome"></h2>
+    <img id="modal-imagem" class="modal-img" src="">
+
+    <p><strong>Marca:</strong> <span id="modal-marca"></span></p>
+    <p><strong>Modelo:</strong> <span id="modal-modelo"></span></p>
+    <p><strong>Ano:</strong> <span id="modal-ano"></span></p>
+    <p><strong>Quilometragem:</strong> <span id="modal-km"></span></p>
+    <p><strong>Câmbio:</strong> <span id="modal-cambio"></span></p>
+    <p><strong>Combustível:</strong> <span id="modal-combustivel"></span></p>
+    <p><strong>Motor:</strong> <span id="modal-motor"></span></p>
+
+
+    <p><strong>Preço Inicial:</strong> R$ <span id="modal-preco"></span></p>
+    <p><strong>Lance Atual:</strong> R$ <span id="modal-lance"></span></p>
+
+    <hr style="margin: 20px 0; border-color: #444;">
+
+    <!-- Formulário para novo lance -->
+    <h3>Novo Lance</h3>
+    <input type="number" id="modal-novo-lance" 
+           placeholder="Digite seu lance" 
+           min="0" step="0.01"
+           style="width:100%; padding:10px; margin:10px 0;">
+
+    <button id="modal-btn-lance" class="btn-lance">Registrar Lance</button>
+
+  </div>
+</div>
+
+  <!-- SIDEBAR DE INFORMAÇÕES -->
+<div id="carInfoSidebar" class="sidebar">
+  <div class="sidebar-content">
+      <span class="close-sidebar" id="closeSidebar">&times;</span>
+      <h2 id="infoNome"></h2>
+      <img id="infoImagem" src="" alt="Imagem do carro">
+      <p><strong>Ano:</strong> <span id="infoAno"></span></p>
+      <p><strong>KM:</strong> <span id="infoKM"></span></p>
+      <p><strong>Motor:</strong> <span id="infoMotor"></span></p>
+      <p><strong>Combustível:</strong> <span id="infoCombustivel"></span></p>
+      <p><strong>Câmbio:</strong> <span id="infoCambio"></span></p>
+      <p><strong>Preço:</strong> R$ <span id="infoPreco"></span></p>
+  </div>
+</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-conteiner">
+      <img class="img-fluid" alt="" width="auto" height="auto" src="img/FundoBranco.png"> 
+    </div>
+    <h1>FORTE LANCE LEILÃO</h1>
+    <div id="user-info" class="user-info"></div>
+    <nav>
+      <div class="nav-search">
+        <input id="searchInput" placeholder="Buscar carros...">
+    </div>
+      <div id="user-info" class="user-info"></div>
+
+      <button onclick="mostrarPagina('home')">Home</button>
+      <button onclick="mostrarPagina('login-admin')">Admin</button>
+      <button onclick="mostrarPagina('cadastro')">Cadastro</button>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="pagina ativa">
+    <h2>Carros em Leilão</h2>
+    <div id="lista-carros" class="grid"></div>
+  </section>
+
+  <!-- CLIENTE -->
+  <section id="cliente" class="pagina">
+    <h2>Área do Cliente</h2>
+    <div id="carros-cliente" class="grid"></div>
+  </section>
+
+  <!-- LOGIN ADMIN -->
+  <section id="login-admin" class="pagina">
+    <h2>Login Administrativo</h2>
+    <div class="login-container">
+      <form id="form-login-admin">
+        <div class="form-group">
+          <label for="admin-username">Usuário:</label>
+          <input type="text" id="admin-username" placeholder="Nome de usuário" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-password">Senha:</label>
+          <input type="password" id="admin-password" placeholder="Senha" required>
+        </div>
+        <button type="submit" class="btn-login">Entrar</button>
+      </form>
+      <p id="login-error" class="error-message"></p>
+    </div>
+  </section>
+
+  <!-- ADMIN PANEL -->
+  <section id="admin-panel" class="pagina">
+    <h2>Painel Administrativo</h2>
+    <div class="admin-container">
+      <h3>Adicionar Novo Carro para Leilão</h3>
+      <form id="form-carro">
+        <div class="form-group">
+          <label for="nome">Nome do Carro:</label>
+          <input type="text" id="nome" placeholder="Ex: Honda Civic" required>
+        </div>
+        <div class="form-group">
+          <label for="marca">Marca:</label>
+          <input type="text" id="marca" placeholder="Ex: Honda" required>
+        </div>
+        <div class="form-group">
+          <label for="modelo">Modelo:</label>
+          <input type="text" id="modelo" placeholder="Ex: Civic" required>
+        </div>
+        <div class="form-group">
+          <label for="ano">Ano:</label>
+          <input type="number" id="ano" placeholder="Ex: 2022" required>
+        </div>
+        <div class="form-group">
+          <label for="categoria">Categoria:</label>
+          <input type="text" id="categoria" placeholder="Ex: Sedan" required>
+        </div>
+        <div class="form-group">
+          <label for="marca">KM:</label>
+          <input type="number" id="km" placeholder="Ex: 10.000" required>
+        </div>
+        <div class="form-group">
+          <label for="marca">Câmbio</label>
+          <input type="text" id="cambio" placeholder="Ex: Automático/Manual" required>
+        </div>
+        <div class="form-group">
+          <label for="marca">Combustível:</label>
+          <input type="text" id="combustivel" placeholder="Ex: Tipo de gasolina" required>
+        </div>
+        <div class="form-group">
+          <label for="marca">Motor</label>
+          <input type="text" id="motor" placeholder="Ex: 3 cilindros" required>
+        </div>
+        <div class="form-group">
+          <label for="preco">Preço Inicial (R$):</label>
+          <input type="number" id="preco" placeholder="Ex: 80000" step="0.01" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="imagem-carro">Imagem do Carro:</label>
+          <input type="file" id="imagem-carro" accept="image/*">
+          <div id="preview-imagem" class="preview-imagem"></div>
+        </div>
+        <button type="submit" class="btn-adicionar">Adicionar Carro</button>
+      </form>
+      <h3>Carros Cadastrados</h3>
+      <div id="lista-admin-carros" class="grid"></div>
+    </div>
+
+          <div class="admin-actions">
+        <button id="btn-logout" class="btn-logout">Sair</button>
+      </div>
+  </section>
+
+  <!-- CADASTRO E LOGIN DE USUÁRIO -->
+  <section id="cadastro" class="pagina">
+    <h2>Área do Usuário</h2>
+    <div class="user-container">
+      <div class="form-section">
+        <h3>Cadastrar Novo Usuário</h3>
+        <form id="form-cadastro">
+          <div class="form-group">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" placeholder="Digite seu nome" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Digite seu email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+          </div>
+          <button type="submit" class="btn-login">Cadastrar</button>
+          <p id="cadastro-msg" class="error-message"></p>
+        </form>
+      </div>
+
+      <div class="form-section">
+        <h3>Login de Usuário</h3>
+        <form id="form-login-usuario">
+          <div class="form-group">
+            <label for="login-username">Usuário:</label>
+            <input type="text" id="login-username" placeholder="Digite seu nome de usuário" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Senha:</label>
+            <input type="password" id="login-password" placeholder="Digite sua senha" required>
+          </div>
+          <button type="submit" class="btn-login">Entrar</button>
+          <p id="login-msg" class="error-message"></p>
+        </form>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates -->
+  <template id="template-card-leilao">
+    <div class="card" data-leilao-id="">
+      <img class="carro-imagem" src="IMG/FundoBranco.png" alt="Imagem do carro">
+      <h3 class="carro-nome"></h3>
+      <p class="carro-info"></p>
+      <p>Lance atual: R$ <span class="lance-valor">0.00</span></p>
+      <div class="lance-form">
+        <button class="btn-info">Saber mais</button>
+      </div>
+      <p class="tempo-restante"></p>
+    </div>
+  </template>
+
+  <template id="template-card-admin">
+    <div class="card" data-leilao-id="">
+      <img class="carro-imagem" src="IMG/FundoBranco.png" alt="Imagem do carro">
+      <h3 class="carro-nome"></h3>
+      <p class="carro-info"></p>
+      <p>Preço Inicial: R$ <span class="preco-inicial">0.00</span></p>
+      <p>Lance atual: R$ <span class="lance-valor">0.00</span></p>
+      <button class="btn-remover">Remover</button>
+      <button class="btn-editar">Editar</button>
+
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+  <script>
+    const userInfo = document.getElementById('user-info');
+    const formCadastro = document.getElementById('form-cadastro');
+    const formLoginUsuario = document.getElementById('form-login-usuario');
+    const cadastroMsg = document.getElementById('cadastro-msg');
+    const loginMsg = document.getElementById('login-msg');
+    
+    let usuarioLogado = false;
+
+    function getUsuarios() {
+      return JSON.parse(localStorage.getItem('usuarios')) || [];
+    }
+
+    function salvarUsuario(usuario) {
+      const usuarios = getUsuarios();
+      if (usuarios.some(u => u.username === usuario.username)) {
+        cadastroMsg.textContent = 'Usuário já cadastrado!';
+        return false;
+      }
+      usuarios.push(usuario);
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+      cadastroMsg.textContent = 'Usuário cadastrado com sucesso!';
+      cadastroMsg.style.color = 'green';
+      return true;
+    }
+
+    formCadastro.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (username && email && password) {
+        salvarUsuario({ username, email, password });
+        formCadastro.reset();
+      }
+    });
+
+    formLoginUsuario.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('login-username').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      const usuarios = getUsuarios();
+
+      const user = usuarios.find(u => u.username === username && u.password === password);
+
+      if (user) {
+        userInfo.textContent = `Usuário: ${user.username}`;
+        loginMsg.textContent = '';
+        usuarioLogado = true;
+        localStorage.setItem('usuarioAtual', user.username);
+        document.getElementById('btn-logout').style.display = 'inline-block';
+        carregarCarrosCliente();
+        mostrarPagina('home');
+      } else {
+        loginMsg.textContent = 'Usuário ou senha incorretos!';
+        loginMsg.style.color = 'red';
+        usuarioLogado = false;
+      }
+    });
+  </script>
+</body>
+
+</html>
+
+
